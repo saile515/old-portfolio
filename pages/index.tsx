@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Header from "../components/Intro/Header.tsx";
+import Header from "../components/Intro/Header";
 import { NextPage } from "next";
 
 const Home: NextPage = () => {

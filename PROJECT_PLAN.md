@@ -7,8 +7,8 @@
 
 ## Color Pallet
 
-Neutral: Tailwind Gray
-Primary: Tailwind Teal
+* Neutral: Tailwind Gray
+* Primary: Tailwind Teal
 
 
 ## Content
