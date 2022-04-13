@@ -26,16 +26,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 		from: process.env.EMAIL,
 		to: process.env.EMAIL,
 		subject: `Potentiell kund - ${data.name}`,
-		text: `Email: ${data.email}\Namn: ${data.name}\Tel: ${data.tel}\nFöretagsnamn: ${data.companyName}\n\nIdé:\n${data.idea}`,
+		text: `Email: ${data.email}\nNamn: ${data.name}\nTel: ${data.tel}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${data.idea}`,
 	};
 
 	transporter.sendMail(mailOptions, (error, info) => {
-		console.log(info, error);
 		if (error) {
 			res.status(400);
 		} else {
 			res.status(200);
 		}
 		res.redirect("/");
+		res.end();
 	});
 }
