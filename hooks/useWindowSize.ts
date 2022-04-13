@@ -8,8 +8,8 @@ export default function useWindowSize() {
 
 	function handleResize() {
 		setWindowSize({
-			width: window.innerWidth,
-			height: window.innerHeight,
+			width: window.document.documentElement.clientWidth,
+			height: window.document.documentElement.clientHeight,
 		});
 	}
 

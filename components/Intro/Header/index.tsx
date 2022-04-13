@@ -9,12 +9,11 @@ export default function Header() {
 	return (
 		<div
 			style={{
-				height: windowSize.height * (1 - scrollHeight / windowSize.height),
-				background: `linear-gradient(${(scrollHeight / windowSize.height) * 50 + 145}deg,transparent,transparent 65%,#2dd4bf 65.05%),linear-gradient(${
-					-(scrollHeight / windowSize.height) * 25 + 100
+				background: `linear-gradient(${(scrollHeight / windowSize.height) * 30 + 145}deg,transparent,transparent 65%,#2dd4bf 65.05%),linear-gradient(${
+					-(scrollHeight / windowSize.height) * 15 + 100
 				}deg,transparent,transparent 75%,#115e59 75.05%)`,
 			}}
-			className=" w-full bg-gray-200">
+			className="h-screen w-full !bg-gray-200">
 			<div className="w-[70%] h-[60%] flex flex-col justify-center items-center m-10">
 				<h1 className="text-gray-800 font-bold text-4xl sm:text-6xl my-2">Elias Jörgensen</h1>
 				<p className="text-gray-600 max-w-sm italic my-2">
@@ -22,7 +21,7 @@ export default function Header() {
 				</p>
 				<Button
 					onClick={(event) => {
-						window.scrollTo({ top: windowSize.height / 2, behavior: "smooth" });
+						window.scrollTo({ top: Math.ceil(windowSize.height + 0.5), behavior: "smooth" });
 					}}>
 					Läs Mer
 				</Button>
