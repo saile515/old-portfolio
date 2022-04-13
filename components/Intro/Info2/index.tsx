@@ -14,7 +14,7 @@ export default function Info2() {
 				</p>
 			</div>
 			<div className="relative md:ml-auto md:mr-12 md:mt-[10vh] w-[80vw] h-[80vw] md:w-[60vh] md:h-[60vh]">
-				<Image src="/Illustration.svg" layout="fill" />
+				<Image src="/Illustration.svg" layout="fill" alt="Dekorativ illustration" />
 			</div>
 		</div>
 	);

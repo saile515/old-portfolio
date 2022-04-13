@@ -16,11 +16,11 @@ export default function Info() {
 
 	return (
 		<div className="md:h-screen flex justify-center items-center">
-			<div className="m-10 md:h-[70%] w-[80%] grid grid-rows-[auto_1fr] gap-4">
+			<div className="m-10 lg:h-[70%] w-[80%] grid grid-rows-[auto_1fr] gap-4">
 				<h2 ref={ref} style={{ opacity: (windowSize.height - clientRect.top - windowSize.height / 8) / (windowSize.height / 8) }} className="text-xl font-bold md:text-2xl">
 					Behöver du eller ditt företag en hemsida?
 				</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(6,minmax(10rem,1fr))] lg:grid-rows-2 gap-4 rounded-xl overflow-hidden">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(6,minmax(10rem,1fr))] md:grid-rows-[repeat(3,minmax(10rem,1fr))] lg:grid-rows-2 gap-4 rounded-xl overflow-hidden">
 					<FeatureBox
 						index={1}
 						img="/Search.svg"

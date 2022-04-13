@@ -17,3 +17,7 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+*:focus {
+	outline: #14b8a6 solid;
+}

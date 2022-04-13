@@ -1,8 +1,10 @@
+import Contact from "../components/Contact";
 import Head from "next/head";
 import Header from "../components/Intro/Header";
 import Info from "../components/Intro/Info";
 import Info2 from "../components/Intro/Info2";
 import { NextPage } from "next";
+import Showcase from "../components/Intro/Showcase";
 
 const Home: NextPage = () => {
 	return (
@@ -15,6 +17,8 @@ const Home: NextPage = () => {
 			<Header />
 			<Info />
 			<Info2 />
+			<Showcase />
+			<Contact />
 		</div>
 	);
 };
