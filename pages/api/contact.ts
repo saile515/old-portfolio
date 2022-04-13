@@ -20,7 +20,7 @@ interface Data {
 	idea: string;
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
 	const data = req.body as Data;
 	const mailOptions = {
 		from: process.env.EMAIL,
@@ -29,13 +29,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 		text: `Email: ${data.email}\nNamn: ${data.name}\nTel: ${data.tel}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${data.idea}`,
 	};
 
-	transporter.sendMail(mailOptions, (error, info) => {
-		if (error) {
-			res.status(400);
-		} else {
-			res.status(200);
-		}
-		res.redirect("/");
-		res.end();
+	return new Promise((resolve, reject) => {
+		transporter.sendMail(mailOptions, (error, info) => {
+			if (error) {
+				res.status(400);
+				reject(400);
+			} else {
+				res.redirect("/");
+				resolve(200);
+			}
+		});
 	});
 }
