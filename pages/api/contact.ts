@@ -11,21 +11,15 @@ interface Data {
 	idea: string;
 }
 
-let transporter: Transporter;
+const transporter = createTransport({
+	service: "gmail",
+	auth: {
+		user: process.env.EMAIL,
+		pass: process.env.PASSWORD,
+	},
+});
 
-try {
-	transporter = createTransport({
-		service: "gmail",
-		auth: {
-			user: process.env.EMAIL,
-			pass: process.env.PASSWORD,
-		},
-	});
-} catch (err) {
-	console.log(err);
-}
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const data = req.body as Data;
 		const mailOptions = {
