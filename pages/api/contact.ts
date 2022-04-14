@@ -1,8 +1,7 @@
 import "dotenv/config";
 
 import type { NextApiRequest, NextApiResponse } from "next";
-
-import { createTransport } from "nodemailer";
+import { Transporter, createTransport } from "nodemailer";
 
 interface Data {
 	email: string;
@@ -12,16 +11,22 @@ interface Data {
 	idea: string;
 }
 
+let transporter: Transporter;
+
+try {
+	transporter = createTransport({
+		service: "gmail",
+		auth: {
+			user: process.env.EMAIL,
+			pass: process.env.PASSWORD,
+		},
+	});
+} catch (err) {
+	console.log(err);
+}
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
-		const transporter = createTransport({
-			service: "gmail",
-			auth: {
-				user: process.env.EMAIL,
-				pass: process.env.PASSWORD,
-			},
-		});
-
 		const data = req.body as Data;
 		const mailOptions = {
 			from: process.env.EMAIL,
