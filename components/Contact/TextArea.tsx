@@ -5,7 +5,7 @@ export default function TextArea(props: { name: string; title: string; minLength
 	return (
 		<>
 			<label htmlFor={props.name} className="h-full col-span-2 flex flex-col relative">
-				{props.title}
+				{props.title}:
 				<textarea
 					minLength={props.minLength}
 					name={props.name}

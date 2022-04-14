@@ -33,16 +33,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 		return new Promise((resolve, reject) => {
 			transporter.sendMail(mailOptions, (error, info) => {
 				if (error) {
-					res.writeHead(302, {
-						Location: "/",
-					});
-					res.end();
+					res.status(400).end();
 					reject(400);
 				} else {
-					res.writeHead(302, {
-						Location: "/",
-					});
-					res.end();
+					res.status(200).end();
 					resolve(200);
 				}
 			});
