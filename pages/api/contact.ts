@@ -4,14 +4,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import { createTransport } from "nodemailer";
 
-const transporter = createTransport({
-	service: "gmail",
-	auth: {
-		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
-	},
-});
-
 interface Data {
 	email: string;
 	name: string;
@@ -22,6 +14,14 @@ interface Data {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
+		const transporter = createTransport({
+			service: "gmail",
+			auth: {
+				user: process.env.EMAIL,
+				pass: process.env.PASSWORD,
+			},
+		});
+
 		const data = req.body as Data;
 		const mailOptions = {
 			from: process.env.EMAIL,

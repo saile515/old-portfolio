@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export default function TextArea(props: { name: string; title: string; minLength: number; tip: { bad: boolean; message: string } }) {
 	const [length, setLength] = useState<number>(0);
