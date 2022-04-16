@@ -1,7 +1,6 @@
-import "dotenv/config";
-
 import { NextApiRequest, NextApiResponse } from "next";
-import { Transporter, createTransport } from "nodemailer";
+
+import { createTransport } from "nodemailer";
 
 interface Data {
 	email: string;
