@@ -10,16 +10,16 @@ interface Data {
 	idea: string;
 }
 
-const transporter = createTransport({
-	service: "gmail",
-	auth: {
-		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
-	},
-});
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
+		const transporter = createTransport({
+			service: "gmail",
+			auth: {
+				user: process.env.EMAIL,
+				pass: process.env.PASSWORD,
+			},
+		});
+
 		const data = req.body as Data;
 		const mailOptions = {
 			from: process.env.EMAIL,
