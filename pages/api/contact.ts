@@ -12,6 +12,7 @@ interface Data {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
+		console.log("Function runs");
 		const transporter = createTransport({
 			service: "gmail",
 			auth: {
@@ -40,6 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			});
 		});
 	} catch (err) {
-		console.log(err);
+		res.end(JSON.stringify(err));
+		return JSON.stringify(err);
 	}
 }
