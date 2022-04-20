@@ -11,37 +11,31 @@ interface Data {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-	try {
-		console.log("Function runs");
-		const transporter = createTransport({
-			service: "gmail",
-			auth: {
-				user: process.env.EMAIL,
-				pass: process.env.PASSWORD,
-			},
-		});
+	const transporter = createTransport({
+		service: "gmail",
+		auth: {
+			user: process.env.EMAIL,
+			pass: process.env.PASSWORD,
+		},
+	});
 
-		const data = req.body as Data;
-		const mailOptions = {
-			from: process.env.EMAIL,
-			to: process.env.EMAIL,
-			subject: `Potentiell kund - ${data.name}`,
-			text: `Email: ${data.email}\nNamn: ${data.name}${data.tel ? "\nTelefon: " + data.tel : ""}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${data.idea}`,
-		};
+	const data = req.body as Data;
+	const mailOptions = {
+		from: process.env.EMAIL,
+		to: process.env.EMAIL,
+		subject: `Potentiell kund - ${data.name}`,
+		text: `Email: ${data.email}\nNamn: ${data.name}${data.tel ? "\nTelefon: " + data.tel : ""}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${data.idea}`,
+	};
 
-		return new Promise((resolve, reject) => {
-			transporter.sendMail(mailOptions, (error, info) => {
-				if (error) {
-					res.status(400).end();
-					reject(400);
-				} else {
-					res.status(200).end();
-					resolve(200);
-				}
-			});
+	return new Promise((resolve, reject) => {
+		transporter.sendMail(mailOptions, (error, info) => {
+			if (error) {
+				res.status(400).json({ message: "Error" });
+				reject({ message: "Error" });
+			} else {
+				res.status(200).json({ message: "Success!" });
+				resolve({ message: "Success!" });
+			}
 		});
-	} catch (err) {
-		res.end(JSON.stringify(err));
-		return JSON.stringify(err);
-	}
+	});
 }
