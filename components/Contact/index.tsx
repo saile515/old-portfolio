@@ -4,8 +4,6 @@ import TextArea from "./TextArea";
 import TextInput from "./TextInput";
 
 export default function Contact() {
-	const [tip, setTip] = useState<{ bad: boolean; message: string }>({ bad: false, message: "Desto mer detaljerad din beskrivning är, desto nogrannare prisestimering kan jag ge." });
-
 	function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = event.target as any;
@@ -29,15 +27,33 @@ export default function Contact() {
 	}
 
 	return (
-		<div className="w-full h-screen flex flex-col items-center">
-			<h2 className="text-3xl mx-40 my-12">Redo att ta ditt företag eller din idé till nästa nivå? Fyll i kontaktformuläret så hör jag av mig med en kostnadsestimering.</h2>
-			<form action="/api/contact" method="post" onSubmit={handleSubmit} className="w-[60%] min-w-[40rem] grid grid-flow-row grid-cols-2 grid-rows-[4rem_4rem_20rem_2rem] gap-2">
+		<div className="grid md:grid-cols-[1fr_60%] w-full min-h-screen md:h-screen">
+			<div className="m-10">
+				<h2 className="text-xl font-bold md:text-2xl m-2 text-center">Redo att ta ditt företag eller din idé till nästa nivå?</h2>
+				<p>Fyll i formuläret med information om hur du vill att din sida ska se ut, och vilka funktioner den ska ha. Saker som är bra att inkludera är:</p>
+				<br />
+				<ul className="list-disc ml-8">
+					<li>Om du ska sälja saker eller ta betalt på sidan.</li>
+					<li>Hur många undersidor sidan ska ha.</li>
+					<li>Vad sidan ska innehålla.</li>
+					<li>Om sidan behöver en Backend (om du inte vet vad detta betyder räcker det med att förklara sidans huvudsyfte).</li>
+				</ul>
+				<br />
+				<p>Jag försöker återkomma med ett prisförslag så fort jag kan. Desto nogrannnare du besktiver din idé, desto nogrannare kommer prisförslaget vara.</p>
+			</div>
+			<form
+				action="/api/contact"
+				method="post"
+				onSubmit={handleSubmit}
+				className="m-10 grid grid-flow-row grid-cols-1 md:grid-cols-2 grid-rows-[4rem_4rem_4rem_4rem_1fr_2rem] md:grid-rows-[4rem_4rem_1fr_2rem] gap-2">
 				<TextInput type="email" name="email" title="Email" />
 				<TextInput type="tel" name="tel" title="Mobilnummer" optional />
 				<TextInput name="name" title="Namn" />
 				<TextInput name="companyName" title="Företagsnamn" optional />
-				<TextArea name="idea" title="Din idé" minLength={250} tip={tip} />
-				<input type="submit" value="Skicka" className="bg-teal-500 text-gray-50 px-4" />
+				<TextArea name="idea" title="Din idé" />
+				<label htmlFor="submit" className="flex justify-center md:col-span-2">
+					<input type="submit" name="submit" value="Skicka" className="bg-teal-500 text-gray-50 px-4 w-32" />
+				</label>
 			</form>
 		</div>
 	);

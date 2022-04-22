@@ -4,7 +4,7 @@ export default function Info2() {
 	return (
 		<div className="p-12 w-full h-screen flex flex-col md:flex-row">
 			<div className="w-full md:w-[40rem] md:h-[60%] md:my-16">
-				<h2 className="text-2xl font-bold">Jag fixar allt*, så att du kan fokusera på det som är viktigt för dig.</h2>
+				<h2 className="text-xl font-bold md:text-2xl">Jag fixar allt*, så att du kan fokusera på det som är viktigt för dig.</h2>
 				<p className="my-4">
 					Jag fixar allt från att bygga sidan, till webbhotell, till domän. Du kan därför fokusera på att utveckla ditt företag, eller spendera tiden som du vill. Allt du behöver göra är att
 					framföra en idé, så gör jag den till verklighet.
