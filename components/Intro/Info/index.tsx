@@ -16,7 +16,7 @@ export default function Info() {
 
 	return (
 		<div className="min-h-screen flex justify-center items-center">
-			<div className="m-10 lg:h-[70%] w-[80%] grid grid-rows-[auto_1fr] gap-4">
+			<div className="m-10 min-h-[60vh] w-[80%] grid grid-rows-[auto_1fr] gap-4">
 				<h2 ref={ref} style={{ opacity: (windowSize.height - clientRect.top - windowSize.height / 8) / (windowSize.height / 8) }} className="text-xl font-bold md:text-2xl">
 					Behöver du eller ditt företag en hemsida?
 				</h2>
