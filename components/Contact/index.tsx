@@ -27,7 +27,7 @@ export default function Contact() {
 	}
 
 	return (
-		<div className="grid md:grid-cols-[1fr_60%] w-full min-h-screen md:h-screen">
+		<div className="grid md:grid-cols-[1fr_60%] w-full min-h-screen">
 			<div className="m-10">
 				<h2 className="text-xl font-bold md:text-2xl m-2 text-center">Redo att ta ditt företag eller din idé till nästa nivå?</h2>
 				<p>Fyll i formuläret med information om hur du vill att din sida ska se ut, och vilka funktioner den ska ha. Saker som är bra att inkludera är:</p>
@@ -40,6 +40,10 @@ export default function Contact() {
 				</ul>
 				<br />
 				<p>Jag försöker återkomma med ett prisförslag så fort jag kan. Desto nogrannnare du besktiver din idé, desto nogrannare kommer prisförslaget vara.</p>
+				<br />
+				<p>
+					Jag kan även nås på <a href="mailto:elias.jorgensen2006@gmail.com">elias.jorgensen2006@gmail.com</a>
+				</p>
 			</div>
 			<form
 				action="/api/contact"

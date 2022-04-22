@@ -3,7 +3,7 @@ import Site from "./Site";
 
 export default function Showcase() {
 	return (
-		<div className="w-full md:h-screen p-8 bg-gray-200 flex flex-col justify-center items-center relative">
+		<div className="w-full min-h-screen p-8 bg-gray-200 flex flex-col justify-center items-center relative">
 			<h2 className="text-xl font-bold md:text-2xl m-4">Mitt tidigare arbete</h2>
 			<div className=" grid md:grid-cols-2 gap-8">
 				<Site
