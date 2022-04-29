@@ -17,7 +17,7 @@ export default function Header() {
 			<div className="w-[70%] h-[60%] flex flex-col justify-center items-center m-10">
 				<h1 className="text-gray-800 font-bold text-4xl sm:text-6xl my-2">Elias Jörgensen</h1>
 				<p className="text-gray-600 max-w-sm italic my-2">
-					Jag är en <span className="font-bold">Fullstack utvecklare</span>, Studerande och Freelancer. Jag utvecklar hemsidor och webbappar.
+					<span className="font-bold">Fullstack utvecklare</span>, Studerande och Freelancer. Jag utvecklar hemsidor och webbappar åt företag och privatpersoner.
 				</p>
 				<Button
 					onClick={(event) => {
