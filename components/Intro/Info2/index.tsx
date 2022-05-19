@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Info2() {
 	return (
-		<div className="p-12 w-full h-screen flex flex-col md:flex-row">
+		<div className="p-12 w-full min-h-screen flex flex-col md:flex-row">
 			<div className="w-full md:w-[40rem] md:h-[60%] md:my-16">
 				<h2 className="text-xl font-bold md:text-2xl">Jag fixar allt*, så att du kan fokusera på det som är viktigt för dig</h2>
 				<p className="my-4">
