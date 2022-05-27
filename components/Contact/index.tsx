@@ -39,7 +39,7 @@ export default function Contact() {
 					<li>Om sidan behöver en backend (om du inte vet vad detta betyder räcker det med att förklara sidans huvudsyfte).</li>
 				</ul>
 				<br />
-				<p>Jag försöker återkomma med ett prisförslag så fort jag kan. Desto nogrannnare du beskriver din idé, desto nogrannare kommer prisförslaget vara.</p>
+				<p>Jag försöker återkomma med ett prisförslag så fort jag kan. Desto noggrannare du beskriver din idé, desto nogrannare kommer prisförslaget vara.</p>
 				<br />
 				<p>
 					Jag kan även nås på <a href="mailto:elias.jorgensen2006@gmail.com">elias.jorgensen2006@gmail.com</a>
