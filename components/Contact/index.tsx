@@ -1,9 +1,11 @@
-import { FormEvent, SyntheticEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 
 import TextArea from "./TextArea";
 import TextInput from "./TextInput";
 
-export default function Contact() {
+function ContactForm() {
+	const [submitted, setSubmitted] = useState<boolean>(false);
+
 	function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = event.target as any;
@@ -24,8 +26,35 @@ export default function Contact() {
 		};
 
 		fetch("/api/contact", options);
+		setSubmitted(true);
 	}
 
+	if (!submitted)
+		return (
+			<form
+				action="/api/contact"
+				method="post"
+				onSubmit={handleSubmit}
+				className="m-10 grid grid-flow-row grid-cols-1 md:grid-cols-2 grid-rows-[4rem_4rem_4rem_4rem_1fr_2rem] md:grid-rows-[4rem_4rem_1fr_2rem] gap-2">
+				<TextInput type="email" name="email" title="Email" />
+				<TextInput type="tel" name="tel" title="Mobilnummer" optional />
+				<TextInput name="name" title="Namn" />
+				<TextInput name="companyName" title="Företagsnamn" optional />
+				<TextArea name="idea" title="Din idé" />
+				<label htmlFor="submit" className="flex justify-center md:col-span-2">
+					<input type="submit" name="submit" value="Skicka" className="bg-teal-500 text-gray-50 px-4 w-32" />
+				</label>
+			</form>
+		);
+
+	return (
+		<div className="m-4 sm:m-10 bg-white rounded-lg flex justify-center items-center p-4">
+			<p className="text-2xl font-bold">Tack för intresset! Jag hör av mig så fort som möjligt.</p>
+		</div>
+	);
+}
+
+export default function Contact() {
 	return (
 		<div className="grid md:grid-cols-[1fr_60%] w-full min-h-screen">
 			<div className="sm:m-10 p-4">
@@ -45,20 +74,7 @@ export default function Contact() {
 					Jag kan även nås på <a href="mailto:elias.jorgensen2006@gmail.com">elias.jorgensen2006@gmail.com</a>
 				</p>
 			</div>
-			<form
-				action="/api/contact"
-				method="post"
-				onSubmit={handleSubmit}
-				className="m-10 grid grid-flow-row grid-cols-1 md:grid-cols-2 grid-rows-[4rem_4rem_4rem_4rem_1fr_2rem] md:grid-rows-[4rem_4rem_1fr_2rem] gap-2">
-				<TextInput type="email" name="email" title="Email" />
-				<TextInput type="tel" name="tel" title="Mobilnummer" optional />
-				<TextInput name="name" title="Namn" />
-				<TextInput name="companyName" title="Företagsnamn" optional />
-				<TextArea name="idea" title="Din idé" />
-				<label htmlFor="submit" className="flex justify-center md:col-span-2">
-					<input type="submit" name="submit" value="Skicka" className="bg-teal-500 text-gray-50 px-4 w-32" />
-				</label>
-			</form>
+			<ContactForm />
 		</div>
 	);
 }
