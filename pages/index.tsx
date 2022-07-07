@@ -4,11 +4,22 @@ import Header from "../components/Intro/Header";
 import Info from "../components/Intro/Info";
 import Info2 from "../components/Intro/Info2";
 import { NextPage } from "next";
+import Script from "next/script";
 import Showcase from "../components/Intro/Showcase";
 
 const Home: NextPage = () => {
 	return (
 		<div className="bg-gray-100 flex flex-col m-0">
+			<Script src="https://www.googletagmanager.com/gtag/js?id=UA-233774066-1" strategy="afterInteractive" />
+			<Script id="google-analytics" strategy="afterInteractive">
+				{`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-233774066-1');
+                `}
+			</Script>
 			<Head>
 				<title>Elias Jörgensen</title>
 				<meta name="description" content="E.J. Webbutveckling - Ta ditt företag till nästa nivå med en hemsida." />
