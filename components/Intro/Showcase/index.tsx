@@ -10,7 +10,7 @@ export default function Showcase() {
 					imageSrc="/Matresan.jpeg"
 					name="Matresan.net"
 					href="https://www.matresan.net"
-					description="Matresan.net är en matblogg gjord åt en klient. Sidan beskriver en familjs resa att äta varje lands nationallrätt."
+					description="Matresan.net är en matblogg gjord åt en klient. Sidan beskriver en familjs projekt med att tillaga varje lands nationalrätt."
 				/>
 				<div className="bg-gray-50 text-gray-600 w-80 max-w-[90vw] h-[28rem] flex justify-center items-center p-8 rounded-lg z-10">
 					<p>Det här är fortfarande ett nytt företag, därför finns det inte jättemånga tidigare kunder. Men ditt företag kan också synas här om du köper en hemsida.</p>

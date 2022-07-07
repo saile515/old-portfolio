@@ -21,17 +21,17 @@ export default function Info() {
 					Behöver du eller ditt företag en hemsida?
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(6,minmax(10rem,1fr))] md:grid-rows-[repeat(3,minmax(10rem,1fr))] lg:grid-rows-2 gap-4 rounded-xl overflow-hidden">
-					<FeatureBox index={1} img="/Search.svg" name="SEO" description="Sökmotoroptimering gör att din sida hamnar högt upp i google resultaten, vilket gör att din sida får mer trafik." />
-					<FeatureBox index={1} img="/Gear.svg" name="Moderna Sidor" description="Jag utvecklar moderna och stilrena sidor som hör hemma på dagens webb." />
+					<FeatureBox index={1} img="/Search.svg" name="SEO" description="Sökmotoroprimering gör att din sida hamnar högst upp i googleresultaten, vilket gör att din sida får mer trafik." />
+					<FeatureBox index={1} img="/Gear.svg" name="Moderna Sidor" description="Moderna och stilrena sidor som hör hemma på dagens webb." />
 					<FeatureBox
 						index={1}
 						img="/Phone.svg"
 						name="Mobil Först"
-						description="Världen flyttas mot mobiler, och det borde din sida också. Jag designar sidor med mobilanvändare i första åtanke."
+						description="Världen flyttas till mobiler, och det borde din sida också. Jag designar sidor med mobilanvändare i första åtanke."
 					/>
-					<FeatureBox index={1} img="/Speed.svg" name="Prestanda" description="Jag levererar sidor med optimal prestanda, för enheter med olika kraft." />
-					<FeatureBox index={1} img="/Money.svg" name="Ta Betalt" description="Sälj produkter på din hemsida och ta betalt. Jag gör det lätt för er att sälja produkter online." />
-					<FeatureBox index={1} img="/Accessibility.svg" name="Tillgänglighet" description="Jag gör sidor tillgängliga för alla männsikor, oavsett deras förutsättningar." />
+					<FeatureBox index={1} img="/Speed.svg" name="Prestanda" description="Jag levererar sidor med optimal prestanda, för enheter med varierande kraftfullhet." />
+					<FeatureBox index={1} img="/Money.svg" name="Ta Betalt" description="Sälj produkter på din hemsida och ta betalt. Jag gör det lätt för dig att sälja produkter online." />
+					<FeatureBox index={1} img="/Accessibility.svg" name="Tillgänglighet" description="Jag gör tillgängliga sidor för alla människor, oavsett vilka förutsättningar de har." />
 				</div>
 			</div>
 		</div>
