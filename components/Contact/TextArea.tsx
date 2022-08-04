@@ -4,13 +4,13 @@ export default function TextArea(props: { name: string; title: string; minLength
 	const [length, setLength] = useState<number>(0);
 	return (
 		<>
-			<label htmlFor={props.name} className="md:col-span-2 flex flex-col relative min-h-[10rem]">
+			<label htmlFor={props.name} className="flex flex-col relative min-h-[10rem] my-1">
 				{props.title}:
 				<textarea
 					minLength={props.minLength}
 					name={props.name}
 					id={props.name}
-					className="w-full h-full resize-none mt-2 p-2"
+					className="w-full h-full resize-none p-2 my-1"
 					onChange={(event) => {
 						setLength(event.target.value.length);
 					}}></textarea>
