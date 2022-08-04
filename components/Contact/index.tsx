@@ -54,7 +54,7 @@ export default function Contact() {
 	return (
 		<div className="grid md:grid-cols-[1fr_1fr] w-full min-h-screen">
 			<div className="flex flex-col justify-center items-center">
-				<div className="m-6 sm:m-0 max-w-3xl">
+				<div className="m-6 sm:m-0 sm:w-[40rem] max-w-[80%]">
 					<h2 className="text-xl font-bold md:text-2xl m-2 text-center">Redo att ta ditt företag eller din idé till nästa nivå?</h2>
 					<p>Fyll i formuläret med information om hur du vill att din sida ska se ut, och vilka funktioner den ska ha. Saker som är bra att inkludera är:</p>
 					<br />
