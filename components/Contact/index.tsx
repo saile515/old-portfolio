@@ -32,9 +32,9 @@ function ContactForm() {
 	if (!submitted)
 		return (
 			<form action="/api/contact" method="post" onSubmit={handleSubmit} className="m-10 flex flex-col">
+				<TextInput name="name" title="Namn" />
 				<TextInput type="email" name="email" title="Email" />
 				<TextInput type="tel" name="tel" title="Mobilnummer" optional />
-				<TextInput name="name" title="Namn" />
 				<TextInput name="companyName" title="Företagsnamn" optional />
 				<TextArea name="idea" title="Din idé" />
 				<label htmlFor="submit" className="flex justify-center">
