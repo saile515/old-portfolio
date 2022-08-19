@@ -27,8 +27,12 @@ function ContactForm() {
 
 		const res = await fetch("/api/contact", options);
 
-		if (res.status == 200) setSubmitted(true);
-		else alert("Ett fel uppstod med formuläret, vänligen försök igen senare.");
+		setSubmitted(true);
+
+		if (res.status != 200) {
+			alert("Ett fel uppstod med formuläret, vänligen försök igen senare.");
+			setSubmitted(false);
+		}
 	}
 
 	if (!submitted)
