@@ -6,7 +6,7 @@ import TextInput from "./TextInput";
 function ContactForm() {
 	const [submitted, setSubmitted] = useState<boolean>(false);
 
-	function handleSubmit(event: FormEvent<HTMLFormElement>) {
+	async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = event.target as any;
 		const data = {
@@ -25,8 +25,10 @@ function ContactForm() {
 			body: JSON.stringify(data),
 		};
 
-		fetch("/api/contact", options);
-		setSubmitted(true);
+		const res = await fetch("/api/contact", options);
+
+		if (res.status == 200) setSubmitted(true);
+		else alert("Ett fel uppstod med formuläret, vänligen försök igen senare.");
 	}
 
 	if (!submitted)
@@ -44,8 +46,8 @@ function ContactForm() {
 		);
 
 	return (
-		<div className="m-4 sm:m-10 bg-white rounded-lg flex justify-center items-center p-4">
-			<p className="text-2xl font-bold">Tack för intresset! Jag hör av mig så fort som möjligt.</p>
+		<div className="flex justify-center items-center m-4">
+			<p className="text-xl sm:text-2xl font-bold text-center">Tack för intresset! Jag hör av mig så fort som möjligt.</p>
 		</div>
 	);
 }
@@ -56,7 +58,10 @@ export default function Contact() {
 			<div className="flex flex-col justify-center items-center">
 				<div className="m-6 sm:m-0 sm:w-[40rem] max-w-[80%]">
 					<h2 className="text-xl font-bold md:text-2xl m-2 text-center">Redo att ta ditt företag eller din idé till nästa nivå?</h2>
-					<p>Fyll i formuläret med information om hur du vill att din sida ska se ut, och vilka funktioner den ska ha. Saker som är bra att inkludera är:</p>
+					<p>
+						Fyll i formuläret med information om hur du vill att din sida ska se ut, och vilka funktioner den ska ha. Saker som är bra att
+						inkludera är:
+					</p>
 					<br />
 					<ul className="list-disc ml-8">
 						<li>Om du ska sälja saker eller ta betalt på sidan.</li>
@@ -65,7 +70,10 @@ export default function Contact() {
 						<li>Om sidan behöver en backend (om du inte vet vad detta betyder räcker det med att förklara sidans huvudsyfte).</li>
 					</ul>
 					<br />
-					<p>Jag försöker återkomma med ett prisförslag så fort jag kan. Desto noggrannare du beskriver din idé, desto nogrannare kommer prisförslaget vara.</p>
+					<p>
+						Jag försöker återkomma med ett prisförslag så fort jag kan. Desto noggrannare du beskriver din idé, desto nogrannare kommer
+						prisförslaget vara.
+					</p>
 					<br />
 					<p>
 						Jag kan även nås på <a href="mailto:elias.jorgensen2006@gmail.com">elias.jorgensen2006@gmail.com</a>
