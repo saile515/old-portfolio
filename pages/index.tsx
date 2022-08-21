@@ -1,4 +1,5 @@
 import Contact from "../components/Contact";
+import Cookies from "../components/Cookies";
 import Head from "next/head";
 import Header from "../components/Intro/Header";
 import Info from "../components/Intro/Info";
@@ -10,14 +11,14 @@ import Showcase from "../components/Intro/Showcase";
 const Home: NextPage = () => {
 	return (
 		<div className="bg-gray-100 flex flex-col m-0">
-			<Script src="https://www.googletagmanager.com/gtag/js?id=UA-233774066-1" strategy="afterInteractive" />
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-B3S7H53F5M" strategy="afterInteractive" />
 			<Script id="google-analytics" strategy="afterInteractive">
 				{`
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer.push(arguments);}
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', 'UA-233774066-1');
+                gtag('config', 'G-B3S7H53F5M');
                 `}
 			</Script>
 			<Head>
@@ -33,6 +34,7 @@ const Home: NextPage = () => {
 			<Info2 />
 			<Showcase />
 			<Contact />
+			<Cookies />
 		</div>
 	);
 };
