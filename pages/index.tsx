@@ -22,12 +22,19 @@ const Home: NextPage = () => {
                 `}
 			</Script>
 			<Head>
-				<title>Elias Jörgensen</title>
-				<meta name="description" content="E.J. Webbutveckling - Ta ditt företag till nästa nivå med en hemsida." />
+				<title>E.J. Webbutveckling - Prisvärda hemsidor</title>
+				<meta
+					name="description"
+					content="E.J. Webbutveckling - Prisvärda hemsidor och webbappar. Behöver du eller ditt företag en hemsida? Kontakta mig."
+				/>
 				<link rel="icon" href="/favicon.ico" />
 				<meta property="og:image" content="https://www.eliasjorgensen.se/PreviewImage.png" />
 				<meta property="og:url" content="https://www.eliasjorgensen.se/" />
-				<meta property="og:title" content="Elias Jörgensen - Fullstack utvecklare" />
+				<meta property="og:title" content="E.J. Webbutveckling - Prisvärda hemsidor" />
+				<meta
+					property="og:description"
+					content="E.J. Webbutveckling - Prisvärda hemsidor och webbappar. Behöver du eller ditt företag en hemsida? Kontakta mig."
+				/>
 			</Head>
 			<Header />
 			<Info />
