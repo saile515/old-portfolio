@@ -18,6 +18,8 @@ const Home: NextPage = () => {
                 gtag('js', new Date());
 
                 gtag('config', 'UA-233774066-1');
+                gtag('config', 'AW-10944466948');
+
                 `}
 			</Script>
 			<Head>
