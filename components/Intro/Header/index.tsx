@@ -9,7 +9,9 @@ export default function Header() {
 	return (
 		<div
 			style={{
-				background: `linear-gradient(${(scrollHeight / windowSize.height) * 30 + 145}deg,transparent,transparent 65%,#14b8a6 65.05%),linear-gradient(${
+				background: `linear-gradient(${
+					(scrollHeight / windowSize.height) * 30 + 145
+				}deg,transparent,transparent 65%,#14b8a6 65.05%),linear-gradient(${
 					-(scrollHeight / windowSize.height) * 15 + 100
 				}deg,transparent,transparent 75%,#115e59 75.05%)`,
 			}}
