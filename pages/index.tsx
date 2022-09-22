@@ -21,6 +21,19 @@ const Home: NextPage = () => {
                 gtag('config', 'G-B3S7H53F5M');
                 gtag('config', 'AW-10944466948');
 
+                function gtag_report_conversion(url) {
+                var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                    window.location = url;
+                    }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-10944466948/3NKBCI7M5eADEISg3eIo',
+                    'event_callback': callback
+                });
+                return false;
+                }
+
                 `}
 			</Script>
 			<Head>

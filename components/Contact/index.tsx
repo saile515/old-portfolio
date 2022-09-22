@@ -3,6 +3,8 @@ import { FormEvent, useState } from "react";
 import TextArea from "./TextArea";
 import TextInput from "./TextInput";
 
+declare var gtag_report_conversion: any;
+
 function ContactForm() {
 	const [submitted, setSubmitted] = useState<boolean>(false);
 
@@ -33,6 +35,8 @@ function ContactForm() {
 			alert("Ett fel uppstod med formuläret, vänligen försök igen senare.");
 			setSubmitted(false);
 		}
+
+		gtag_report_conversion() as any;
 	}
 
 	if (!submitted)
