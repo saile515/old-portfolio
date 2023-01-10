@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+import { RecaptchaEnterpriseServiceClient } from "@google-cloud/recaptcha-enterprise";
 import { createTransport } from "nodemailer";
 
 interface Data {
@@ -8,10 +9,34 @@ interface Data {
 	tel?: string;
 	companyName?: string;
 	idea: string;
+	captcha: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
+		const data = req.body as Data;
+
+		// Assess captcha
+		const client = new RecaptchaEnterpriseServiceClient();
+		const projectPath = client.projectPath(process.env.PROJECT_ID!);
+
+		// Build the assessment request.
+		const request = {
+			assessment: {
+				event: {
+					token: data.captcha,
+					siteKey: process.env.NEXT_PUBLIC_CAPTCHA_KEY,
+				},
+			},
+			parent: projectPath,
+		};
+
+		const [response] = await client.createAssessment(request);
+		console.log("3");
+
+		console.log("The reCAPTCHA score is: " + response.riskAnalysis!.score);
+
+		// Send mail
 		let transporter = createTransport({
 			host: "smtp.gmail.com",
 			port: 465,
@@ -27,12 +52,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			},
 		});
 
-		const data = req.body as Data;
 		const mailOptions = {
 			from: process.env.EMAIL,
 			to: process.env.EMAIL,
 			subject: `Potentiell kund - ${data.name}`,
-			text: `Email: ${data.email}\nNamn: ${data.name}${data.tel ? "\nTelefon: " + data.tel : ""}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${data.idea}`,
+			text: `Email: ${data.email}\nNamn: ${data.name}${
+				data.tel ? "\nTelefon: " + data.tel : ""
+			}${data.companyName ? "\nFöretagsnamn: " + data.companyName : ""}\n\nIdé:\n${
+				data.idea
+			}`,
 		};
 
 		return new Promise((resolve, reject) => {
