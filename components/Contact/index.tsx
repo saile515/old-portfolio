@@ -123,6 +123,17 @@ export default function Contact() {
 			</div>
 			<div className="flex flex-col justify-center items-center">
 				<ContactForm />
+				<span className="text-xs w-80 text-gray-400">
+					This site is protected by reCAPTCHA and the Google{" "}
+					<a href="https://policies.google.com/privacy" className="text-blue-400">
+						Privacy Policy
+					</a>{" "}
+					and{" "}
+					<a href="https://policies.google.com/terms" className="text-blue-400">
+						Terms of Service
+					</a>{" "}
+					apply.
+				</span>
 			</div>
 		</div>
 	);

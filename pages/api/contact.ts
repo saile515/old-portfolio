@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { RecaptchaEnterpriseServiceClient } from "@google-cloud/recaptcha-enterprise";
 import { createTransport } from "nodemailer";
+import fetch from "node-fetch";
 
 interface Data {
 	email: string;
@@ -16,25 +16,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	try {
 		const data = req.body as Data;
 
-		// Assess captcha
-		const client = new RecaptchaEnterpriseServiceClient();
-		const projectPath = client.projectPath(process.env.PROJECT_ID!);
-
 		// Build the assessment request.
 		const request = {
-			assessment: {
-				event: {
-					token: data.captcha,
-					siteKey: process.env.NEXT_PUBLIC_CAPTCHA_KEY,
-				},
+			event: {
+				token: data.captcha,
+				siteKey: process.env.NEXT_PUBLIC_CAPTCHA_KEY,
+				expectedAction: "SEND_MESSAGE",
 			},
-			parent: projectPath,
 		};
 
-		const [response] = await client.createAssessment(request);
-		console.log("3");
+		console.log(request);
 
-		console.log("The reCAPTCHA score is: " + response.riskAnalysis!.score);
+		const response: any = await fetch(
+			`https://recaptchaenterprise.googleapis.com/v1/projects/${process.env.PROJECT_ID}/assessments?key=${process.env.API_KEY}`,
+			{ method: "POST", body: JSON.stringify(request) }
+		).then((res) => res.json());
+
+		console.log(response);
+
+		if (response.riskAnalysis.score < 0.3) return;
 
 		// Send mail
 		let transporter = createTransport({
@@ -75,6 +75,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			});
 		});
 	} catch (err) {
-		console.log(err);
+		res.status(500);
 	}
 }

@@ -17,8 +17,9 @@ export default function Cookies() {
 	if (accepted) return <></>;
 
 	return (
-		<div className="fixed bottom-0 text-center w-full bg-gray-800 bg-opacity-70 text-white inline justify-center py-2">
-			Genom att använda hemsidan godkänner du användningen av cookies för statistik. Vi säljer inte din data.
+		<div className="fixed bottom-0 text-center w-full bg-gray-800 bg-opacity-70 text-white inline justify-center py-2 z-50">
+			Genom att använda hemsidan godkänner du användningen av cookies för statistik. Vi säljer
+			inte din data.
 			<button
 				onClick={() => {
 					setAccepted(true);

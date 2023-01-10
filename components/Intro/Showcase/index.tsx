@@ -11,12 +11,16 @@ export default function Showcase() {
 			<h2 className="text-xl font-bold md:text-2xl m-4 z-10">Mitt tidigare arbete</h2>
 			<div className="z-10">
 				<button
-					className={`p-1 m-3 focus:outline-none ${websitesVisible ? "border-b-2 border-teal-500 " : "text-gray-500"}`}
+					className={`p-1 m-3 focus:outline-none ${
+						websitesVisible ? "border-b-2 border-teal-500 " : "text-gray-500"
+					}`}
 					onClick={() => setWebsitesVisible(true)}>
 					Hemsidor
 				</button>
 				<button
-					className={`p-1 m-3 focus:outline-none ${webappsVisible ? "border-b-2 border-teal-500 " : "text-gray-500"}`}
+					className={`p-1 m-3 focus:outline-none ${
+						webappsVisible ? "border-b-2 border-teal-500 " : "text-gray-500"
+					}`}
 					onClick={() => setWebappsVisible(true)}>
 					Webbappar
 				</button>
@@ -43,8 +47,9 @@ export default function Showcase() {
 						/>
 						<div className="bg-gray-50 text-gray-600 w-80 max-w-[90vw] h-[28rem] flex justify-center items-center p-8 rounded-lg mx-4 z-10">
 							<p>
-								Det här är fortfarande ett nytt företag, därför finns det inte jättemånga tidigare kunder. Men ditt företag kan också
-								synas här om du köper en hemsida.
+								Det här är fortfarande ett nytt företag, därför finns det inte
+								jättemånga tidigare kunder. Men ditt företag kan också synas här om
+								du köper en hemsida.
 							</p>
 						</div>
 					</div>
@@ -66,7 +71,7 @@ export default function Showcase() {
 							imageSrc="/Ordlist-skapare.jpeg"
 							name="Ordlist-skapare.se"
 							href="https://www.ordlist-skapare.se"
-							description="Ordlist-skapare är en liten webbapp för att göra om text till en ordlist som sedan går att redigera."
+							description="Ordlist-skapare är en liten webbapp för att göra om text till en ordlista som sedan går att redigera."
 						/>
 					</div>
 				</CSSTransition>
