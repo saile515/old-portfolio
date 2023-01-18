@@ -25,8 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			},
 		};
 
-		console.log(request);
-
 		const response: any = await fetch(
 			`https://recaptchaenterprise.googleapis.com/v1/projects/${process.env.PROJECT_ID}/assessments?key=${process.env.API_KEY}`,
 			{ method: "POST", body: JSON.stringify(request) }
