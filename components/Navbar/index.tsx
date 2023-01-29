@@ -5,7 +5,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 function NavLink(props: { name: string; url: string }) {
 	return (
 		<Link href={props.url}>
-			<a className="uppercase tracking-wider font-bold text-zinc-900 dark:text-zinc-50 mx-1 sm:mx-4 text-[0.624rem] xs:text-sm sm:text-base whitespace-nowrap">
+			<a className="uppercase tracking-wider font-bold text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-300 mx-1 xs:mx-2 sm:mx-4 text-[0.624rem] xs:text-sm sm:text-base whitespace-nowrap">
 				{props.name}
 			</a>
 		</Link>
@@ -25,6 +25,7 @@ export default function Navbar() {
 					name={`${windowSize.width <= 480 ? "Pris" : "Priskalkylator"}`}
 					url="/calculator"
 				/>
+				<NavLink name="Kontakt" url="/#contact" />
 			</nav>
 			<DarkModeSwitch />
 		</div>
