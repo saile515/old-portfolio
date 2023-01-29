@@ -1,16 +1,12 @@
-import Contact from "../components/Contact";
 import Cookies from "../components/Cookies";
 import Head from "next/head";
-import Header from "../components/Intro/Header";
-import Info from "../components/Intro/Info";
-import Info2 from "../components/Intro/Info2";
+import Navbar from "../components/Navbar";
 import { NextPage } from "next";
 import Script from "next/script";
-import Showcase from "../components/Intro/Showcase";
 
 const Home: NextPage = () => {
 	return (
-		<div className="bg-gray-100 flex flex-col m-0">
+		<div className="bg-zinc-50 dark:bg-zinc-900 min-h-screen">
 			<Script
 				async
 				src="https://www.googletagmanager.com/gtag/js?id=G-B3S7H53F5M"
@@ -60,11 +56,7 @@ const Home: NextPage = () => {
 					content="E.J. Webbutveckling - Prisvärda hemsidor och webbappar. Behöver du eller ditt företag en hemsida? Kontakta mig."
 				/>
 			</Head>
-			<Header />
-			<Info />
-			<Info2 />
-			<Showcase />
-			<Contact />
+			<Navbar />
 			<Cookies />
 		</div>
 	);

@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 
+import getCookie from "../utils/getCookie";
+
 export default function Cookies() {
 	const [accepted, setAccepted] = useState(false);
 
 	useEffect(() => {
-		setAccepted(
-			Boolean(
-				document.cookie
-					.split("; ")
-					.find((row) => row.startsWith("acceptedCookies"))
-					?.split("=")[1]
-			)
-		);
+		setAccepted(Boolean(getCookie("acceptedCookies")));
 	}, []);
 
 	if (accepted) return <></>;
