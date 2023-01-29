@@ -3,45 +3,42 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 function DynamicText() {
-	const ref = useRef<HTMLSpanElement>(null);
-	const [currentIndex, setCurrentIndex] = useState(0);
 	const phrases = ["Nå dina kunder", "Sälj din produkt", "Bygg ett varumärke"];
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentIndex((currentIndex) => (currentIndex + 1) % phrases.length);
-		}, 5200);
-
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
+	const [phraseIndex, setPhraseIndex] = useState(0);
+	const [letterIndex, setLetterIndex] = useState(0);
+	const [animationFrame, setAnimationFrame] = useState(0);
+	const [text, setText] = useState(phrases[0]);
 
 	useEffect(() => {
-		if (!ref.current) return;
-		const activePhrase = phrases[currentIndex];
-		let index = 0;
+		setText(phrases[phraseIndex].slice(0, letterIndex));
 
-		let interval = setInterval(() => {
-			index++;
-			ref.current!.innerText = activePhrase.slice(0, index);
-			if (index == activePhrase.length) clearInterval(interval);
-		}, 2000 / activePhrase.length);
-
-		setTimeout(() => {
-			index = activePhrase.length;
-			interval = setInterval(() => {
-				index--;
-				ref.current!.innerText = activePhrase.slice(0, index);
-				if (index == 0) clearInterval(interval);
-			}, 500 / activePhrase.length);
-		}, 4000);
-	}, [currentIndex]);
+		if (animationFrame < phrases[phraseIndex].length) {
+			setLetterIndex((letterIndex) => letterIndex + 1);
+			setTimeout(
+				() => setAnimationFrame((animationFrame) => animationFrame + 1),
+				2000 / phrases[phraseIndex].length
+			);
+		} else if (animationFrame > phrases[phraseIndex].length && letterIndex > 0) {
+			setLetterIndex((letterIndex) => letterIndex - 1);
+			setTimeout(
+				() => setAnimationFrame((animationFrame) => animationFrame + 1),
+				500 / phrases[phraseIndex].length
+			);
+		} else if (animationFrame == phrases[phraseIndex].length) {
+			setTimeout(() => setAnimationFrame((animationFrame) => animationFrame + 1), 2000);
+		} else if (animationFrame <= phrases[phraseIndex].length * 2 + 2) {
+			setTimeout(() => setAnimationFrame((animationFrame) => animationFrame + 1), 500);
+		} else {
+			setPhraseIndex((phraseIndex) => (phraseIndex + 1) % phrases.length);
+			setAnimationFrame(0);
+		}
+	}, [animationFrame]);
 
 	return (
 		<h1 className="text-zinc-900 dark:text-zinc-50 font-title text-2xl xs:text-4xl sm:text-5xl mt-48 sm:mt-64 mx-4 sm:mx-16 max-w-[18rem] sm:max-w-md sm:leading-tight">
 			<span className="bg-teal-400 dark:bg-teal-600 rounded-lg px-2 whitespace-nowrap">
-				<span ref={ref}>Nå dina kunder</span>
+				<span>{text}</span>
 				<i className="bg-[url('/text-caret-light.svg')] dark:bg-[url('/text-caret-dark.svg')] text-zinc-900 dark:text-zinc-50 w-[1em] h-[1em] inline-block -mb-1 sm:-mb-2 -mx-2"></i>
 			</span>
 			<br /> med en hemsida från Webbej

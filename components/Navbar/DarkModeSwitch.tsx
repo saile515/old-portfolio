@@ -23,6 +23,7 @@ export default function DarkModeSwitch() {
 	return (
 		<button
 			onClick={() => setDark(!dark)}
+			aria-label="Byt färgtema"
 			className="text:zinc-900 dark:text-zinc-50 ml-auto mx-4 sm:mx-12">
 			{dark ? (
 				<SunIcon className="text-zinc-900 dark:text-zinc-50 w-6 h-6" />
