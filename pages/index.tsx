@@ -1,5 +1,6 @@
 import Cookies from "../components/Cookies";
 import Head from "next/head";
+import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { NextPage } from "next";
 import Script from "next/script";
@@ -57,11 +58,7 @@ const Home: NextPage = () => {
 				/>
 			</Head>
 			<Navbar />
-			<p className="font-title text-zinc-900 dark:text-zinc-50">
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium modi eos vel
-				beatae enim vero, officia, explicabo veritatis excepturi ipsa quis cum ea
-				doloremque. Eos harum quasi accusantium quisquam in.
-			</p>
+			<Header />
 			<Cookies />
 		</div>
 	);
