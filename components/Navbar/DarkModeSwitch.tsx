@@ -13,7 +13,6 @@ export default function DarkModeSwitch() {
 	}, []);
 
 	useEffect(() => {
-		console.log(dark);
 		if (dark === undefined) return;
 		if (dark) document.documentElement.classList.add("dark");
 		else document.documentElement.classList.remove("dark");
@@ -24,12 +23,8 @@ export default function DarkModeSwitch() {
 		<button
 			onClick={() => setDark(!dark)}
 			aria-label="Byt färgtema"
-			className="text:zinc-900 dark:text-zinc-50 ml-auto mx-4 sm:mx-12">
-			{dark ? (
-				<SunIcon className="text-zinc-900 dark:text-zinc-50 w-6 h-6" />
-			) : (
-				<MoonIcon className="text-zinc-900 dark:text-zinc-50 w-6 h-6" />
-			)}
+			className="ml-auto mx-4 sm:mx-12">
+			{dark ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}
 		</button>
 	);
 }

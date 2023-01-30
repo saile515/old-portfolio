@@ -8,7 +8,7 @@ import WhatWeDo from "../components/WhatWeDo";
 
 const Home: NextPage = () => {
 	return (
-		<div className="bg-zinc-50 dark:bg-zinc-900 min-h-screen">
+		<div className="bg-zinc-50 dark:bg-zinc-900 min-h-screen text-zinc-900 dark:text-zinc-50">
 			<Script
 				async
 				src="https://www.googletagmanager.com/gtag/js?id=G-B3S7H53F5M"
