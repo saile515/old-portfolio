@@ -36,10 +36,10 @@ function DynamicText() {
 	}, [animationFrame]);
 
 	return (
-		<h1 className="text-zinc-900 dark:text-zinc-50 font-title text-2xl xs:text-4xl sm:text-5xl mt-48 sm:mt-64 mx-4 sm:mx-16 max-w-[18rem] sm:max-w-md sm:leading-tight">
+		<h1 className="font-title text-2xl xs:text-4xl sm:text-5xl mt-48 sm:mt-64 mx-4 sm:mx-16 max-w-[18rem] sm:max-w-md sm:leading-tight">
 			<span className="bg-teal-400 dark:bg-teal-600 rounded-lg px-2 whitespace-nowrap">
 				<span>{text}</span>
-				<i className="bg-[url('/text-caret-light.svg')] dark:bg-[url('/text-caret-dark.svg')] text-zinc-900 dark:text-zinc-50 w-[1em] h-[1em] inline-block -mb-1 sm:-mb-2 -mx-2"></i>
+				<i className="bg-[url('/text-caret-light.svg')] dark:bg-[url('/text-caret-dark.svg')] w-[1em] h-[1em] inline-block -mb-1 sm:-mb-2 -mx-2"></i>
 			</span>
 			<br /> med en hemsida från Webbej
 		</h1>
@@ -48,11 +48,11 @@ function DynamicText() {
 
 export default function Header() {
 	return (
-		<div className="h-screen w-full dark:text-zinc-50 bg-[url('/graph-paper.svg')] relative">
+		<div className="h-screen w-full bg-[url('/graph-paper.svg')] relative">
 			<div className="absolute top-0 left-0 w-full h-full header-gradient-light dark:header-gradient-dark">
 				<DynamicText />
 				<button
-					className="flex flex-col items-center ml-12 sm:ml-32 mt-4 sm:mt-12 text-zinc-900 dark:text-zinc-50"
+					className="flex flex-col items-center ml-12 sm:ml-32 mt-4 sm:mt-12"
 					onClick={() =>
 						window.scrollTo({
 							top: window.innerHeight,
