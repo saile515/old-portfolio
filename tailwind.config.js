@@ -9,7 +9,7 @@ module.exports = {
 			sans: ["Montserrat", "ui-sans-serif", "system-ui"],
 		},
 		screens: {
-			xs: "320px",
+			xs: "380px",
 			...defaultTheme.screens,
 		},
 	},

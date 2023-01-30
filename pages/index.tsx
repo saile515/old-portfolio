@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { NextPage } from "next";
 import Script from "next/script";
+import WhatWeDo from "../components/WhatWeDo";
 
 const Home: NextPage = () => {
 	return (
@@ -59,6 +60,7 @@ const Home: NextPage = () => {
 			</Head>
 			<Navbar />
 			<Header />
+			<WhatWeDo />
 			<Cookies />
 		</div>
 	);

@@ -51,7 +51,14 @@ export default function Header() {
 		<div className="h-screen w-full dark:text-zinc-50 bg-[url('/graph-paper.svg')] relative">
 			<div className="absolute top-0 left-0 w-full h-full header-gradient-light dark:header-gradient-dark">
 				<DynamicText />
-				<button className="flex flex-col items-center ml-12 sm:ml-32 mt-4 sm:mt-12 text-zinc-900 dark:text-zinc-50">
+				<button
+					className="flex flex-col items-center ml-12 sm:ml-32 mt-4 sm:mt-12 text-zinc-900 dark:text-zinc-50"
+					onClick={() =>
+						window.scrollTo({
+							top: window.innerHeight,
+							behavior: "smooth",
+						})
+					}>
 					Läs mer nedan...
 					<ChevronDoubleDownIcon className="w-6 h-6" />
 				</button>
