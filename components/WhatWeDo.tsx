@@ -92,7 +92,15 @@ function InfoBoxes() {
 
 export default function WhatWeDo() {
 	return (
-		<div className="min-h-screen flex items-center relative">
+		<div className="min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center">
+			<div className="lg:ml-auto lg:flex-grow text-center my-32 flex flex-col items-center mx-4">
+				<h2 className="font-title text-xl sm:text-2xl mb-2">Hemsidor för alla syften</h2>
+				<p className="max-w-md text-left sm:text-lg">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam
+					corporis provident cumque quis quo, dignissimos quae animi fugiat reiciendis
+					molestiae? Officia at magni a! Corrupti ipsa porro quae officia.
+				</p>
+			</div>
 			<InfoBoxes />
 		</div>
 	);
