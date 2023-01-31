@@ -27,7 +27,7 @@ function InfoBox(props: {
 				props.activeIndex == props.index ? "rounded-r-none !translate-x-4" : ""
 			} ${props.activeIndex !== null ? "w-16" : ""}`}>
 			{props.icon}
-			<span className={`ml-3 ${props.activeIndex !== null ? "hidden sm:inline" : ""}`}>
+			<span className={`mx-3 ${props.activeIndex !== null ? "hidden sm:inline" : ""}`}>
 				{props.item}
 			</span>
 			<ArrowRightIcon
@@ -51,7 +51,7 @@ function InfoBoxes() {
 
 	return (
 		<div className="flex p-2 m-auto sm:m-8">
-			<div className="flex flex-col gap-4">
+			<div className="flex flex-col gap-4 w-full">
 				<InfoBox
 					item="SEO"
 					icon={<ArrowTrendingUpIcon className="w-8 h-8" />}
