@@ -6,6 +6,9 @@ import {
 	UsersIcon,
 } from "@heroicons/react/24/solid";
 import { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import { animated, useSpring } from "react-spring";
+
+import { Waypoint } from "react-waypoint";
 
 function InfoBox(props: {
 	item: string;
@@ -91,8 +94,15 @@ function InfoBoxes() {
 }
 
 export default function WhatWeDo() {
+	const [animationFinished, setAnimationFinished] = useState(false);
+	const [spring, api] = useSpring(() => ({
+		from: { y: 100, opacity: 0 },
+	}));
+
 	return (
-		<div className="min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center">
+		<animated.div
+			style={{ ...spring }}
+			className="min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center">
 			<div className="lg:ml-auto lg:flex-grow text-center my-32 flex flex-col items-center mx-4">
 				<h2 className="font-title text-xl sm:text-2xl mb-2">Hemsidor för alla syften</h2>
 				<p className="max-w-md text-left sm:text-lg">
@@ -101,7 +111,23 @@ export default function WhatWeDo() {
 					molestiae? Officia at magni a! Corrupti ipsa porro quae officia.
 				</p>
 			</div>
+			<Waypoint
+				onEnter={() => {
+					if (!animationFinished)
+						setTimeout(
+							() =>
+								api.start({
+									from: { y: 100, opacity: 0 },
+									to: { y: 0, opacity: 1 },
+								}),
+							50
+						);
+
+					setAnimationFinished(true);
+				}}
+				fireOnRapidScroll
+			/>
 			<InfoBoxes />
-		</div>
+		</animated.div>
 	);
 }
