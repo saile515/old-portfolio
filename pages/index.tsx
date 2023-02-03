@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { NextPage } from "next";
 import Script from "next/script";
+import WeOfferEverything from "../components/WeOfferEverything";
 import WhatWeDo from "../components/WhatWeDo";
 
 const Home: NextPage = () => {
@@ -61,6 +62,7 @@ const Home: NextPage = () => {
 			<Navbar />
 			<Header />
 			<WhatWeDo />
+			<WeOfferEverything />
 			<Cookies />
 		</div>
 	);
