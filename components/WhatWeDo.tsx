@@ -23,9 +23,9 @@ function InfoBox(props: {
 				if (props.activeIndex != props.index) props.setActiveIndex(props.index);
 				else props.setActiveIndex(null);
 			}}
-			className={`px-4 py-2 w-full sm:w-64 text-left text-xl leading-10 font-title bg-teal-400 dark:bg-teal-600 rounded-lg sm:hover:translate-x-2 transition-all flex items-center overflow-hidden ${
+			className={`px-4 py-2 w-[80vw] sm:w-64 text-left text-xl leading-10 font-title bg-teal-400 dark:bg-teal-600 rounded-lg sm:hover:translate-x-2 transition-transform flex items-center overflow-hidden ${
 				props.activeIndex == props.index ? "rounded-r-none !translate-x-4" : ""
-			} ${props.activeIndex !== null ? "w-16" : ""}`}>
+			} ${props.activeIndex !== null ? "!w-16" : ""}`}>
 			{props.icon}
 			<span
 				className={`mx-3 transition-all ${
@@ -53,7 +53,7 @@ function InfoBoxes() {
 	const [activeIndex, setActiveIndex] = useState<number>(null);
 
 	return (
-		<div className="flex p-2 m-auto sm:m-8 justify-center">
+		<div className="flex p-2 my-auto sm:m-8 justify-center">
 			<div className="flex flex-col gap-4">
 				<InfoBox
 					item="SEO"
@@ -103,34 +103,38 @@ export default function WhatWeDo() {
 	}));
 
 	return (
-		<animated.div
-			style={{ ...spring }}
-			className="min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center">
-			<div className="lg:ml-auto lg:flex-grow text-center my-32 flex flex-col items-center mx-4">
-				<h2 className="font-title text-xl sm:text-2xl mb-2">Hemsidor för alla syften</h2>
-				<p className="max-w-md text-left sm:text-lg">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam
-					corporis provident cumque quis quo, dignissimos quae animi fugiat reiciendis
-					molestiae? Officia at magni a! Corrupti ipsa porro quae officia.
-				</p>
-			</div>
-			<Waypoint
-				onEnter={() => {
-					if (!animationFinished)
-						setTimeout(
-							() =>
-								api.start({
-									from: { y: 100, opacity: 0 },
-									to: { y: 0, opacity: 1 },
-								}),
-							50
-						);
+		<div className="min-h-screen flex items-center">
+			<animated.div
+				style={{ ...spring }}
+				className="flex flex-col lg:flex-row-reverse items-center justify-center w-full">
+				<div className="lg:ml-auto lg:flex-grow text-center mt-32 mb-16 flex flex-col items-center mx-4">
+					<h2 className="font-title text-xl sm:text-2xl mb-2">
+						Hemsidor för alla syften
+					</h2>
+					<p className="max-w-md text-left sm:text-lg">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam
+						corporis provident cumque quis quo, dignissimos quae animi fugiat reiciendis
+						molestiae? Officia at magni a! Corrupti ipsa porro quae officia.
+					</p>
+				</div>
+				<Waypoint
+					onEnter={() => {
+						if (!animationFinished)
+							setTimeout(
+								() =>
+									api.start({
+										from: { y: 100, opacity: 0 },
+										to: { y: 0, opacity: 1 },
+									}),
+								50
+							);
 
-					setAnimationFinished(true);
-				}}
-				fireOnRapidScroll
-			/>
-			<InfoBoxes />
-		</animated.div>
+						setAnimationFinished(true);
+					}}
+					fireOnRapidScroll
+				/>
+				<InfoBoxes />
+			</animated.div>
+		</div>
 	);
 }

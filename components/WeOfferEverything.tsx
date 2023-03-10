@@ -1,5 +1,4 @@
 import {
-	Bars3BottomLeftIcon,
 	ChatBubbleLeftEllipsisIcon,
 	CircleStackIcon,
 	CloudIcon,
@@ -16,10 +15,10 @@ import {
 
 export default function WeOfferEverything() {
 	const style =
-		"w-10 h-10 bg-teal-400 dark:bg-teal-600 text-zinc-900 dark:text-zinc-50 p-1 rounded-lg";
+		"w-10 h-10 bg-teal-400 dark:bg-teal-400 text-zinc-900 dark:text-zinc-50 p-1 rounded-lg opacity-40 sm:opacity-100";
 
 	return (
-		<div className="mx-auto w-fit sm:w-full grid gap-2 sm:gap-6 grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 justify-items-center">
+		<div className="mx-auto w-fit sm:w-full grid gap-2 sm:gap-6 grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 justify-items-center">
 			<CodeBracketSquareIcon className={style} />
 			<PencilIcon className={style} />
 			<PhotoIcon className={style} />
