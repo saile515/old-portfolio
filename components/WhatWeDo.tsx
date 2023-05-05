@@ -27,10 +27,7 @@ function InfoBox(props: {
 				props.activeIndex == props.index ? "rounded-r-none !translate-x-4" : ""
 			} ${props.activeIndex !== null ? "!w-16" : ""}`}>
 			{props.icon}
-			<span
-				className={`mx-3 transition-all ${
-					props.activeIndex !== null ? "hidden sm:inline" : ""
-				}`}>
+			<span className={`mx-3 transition-all ${props.activeIndex !== null ? "hidden" : ""}`}>
 				{props.item}
 			</span>
 			<ArrowRightIcon

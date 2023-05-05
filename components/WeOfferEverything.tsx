@@ -14,22 +14,33 @@ import {
 } from "@heroicons/react/24/solid";
 
 export default function WeOfferEverything() {
-	const style =
-		"w-10 h-10 bg-teal-400 dark:bg-teal-400 text-zinc-900 dark:text-zinc-50 p-1 rounded-lg opacity-40 sm:opacity-100";
+	const style = "w-8 h-8 sm:w-12 sm:h-12 text-zinc-700 dark:text-zinc-400 opacity-50 m-auto";
 
 	return (
-		<div className="mx-auto w-fit sm:w-full grid gap-2 sm:gap-6 grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 justify-items-center">
+		<div className="min-h-screen grid grid-cols-4 grid-flow-column">
 			<CodeBracketSquareIcon className={style} />
+			<div></div>
 			<PencilIcon className={style} />
+			<div></div>
+			<div></div>
 			<PhotoIcon className={style} />
+			<div></div>
 			<ChatBubbleLeftEllipsisIcon className={style} />
 			<CreditCardIcon className={style} />
+			<div></div>
 			<PresentationChartLineIcon className={style} />
+			<div></div>
+			<div></div>
 			<GlobeAltIcon className={style} />
+			<div></div>
 			<CloudIcon className={style} />
 			<LockClosedIcon className={style} />
+			<div></div>
 			<CircleStackIcon className={style} />
+			<div></div>
+			<div></div>
 			<PencilSquareIcon className={style} />
+			<div></div>
 			<Cog8ToothIcon className={style} />
 		</div>
 	);
