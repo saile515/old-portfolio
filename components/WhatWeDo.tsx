@@ -113,7 +113,7 @@ export default function WhatWeDo() {
 			<animated.div
 				style={{ ...spring }}
 				className="flex flex-col lg:flex-row-reverse items-center justify-center w-full">
-				<div className="relative min-h-[40rem] lg:ml-auto lg:flex-grow justify-center text-center mt-32 mb-16 flex flex-col items-center mx-4 group">
+				<div className="relative lg:ml-auto lg:flex-grow justify-center text-center mt-32 mb-16 flex flex-col items-center mx-4 group">
 					<h2 className="font-title text-xl sm:text-4xl mb-2">
 						Hemsidor för alla syften
 					</h2>
