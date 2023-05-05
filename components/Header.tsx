@@ -15,7 +15,6 @@ function DynamicText() {
 	}
 
 	useEffect(() => {
-		console.log(animationFrame);
 		setText(phrases[phraseIndex].slice(0, letterIndex));
 
 		if (animationFrame < phrases[phraseIndex].length) {

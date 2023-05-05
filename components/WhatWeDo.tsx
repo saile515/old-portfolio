@@ -23,11 +23,14 @@ function InfoBox(props: {
 				if (props.activeIndex != props.index) props.setActiveIndex(props.index);
 				else props.setActiveIndex(null);
 			}}
-			className={`px-4 py-2 w-[80vw] sm:w-64 text-left text-xl leading-10 font-title bg-teal-400 dark:bg-teal-600 rounded-lg sm:hover:translate-x-2 transition-transform flex items-center overflow-hidden ${
-				props.activeIndex == props.index ? "rounded-r-none !translate-x-4" : ""
-			} ${props.activeIndex !== null ? "!w-16" : ""}`}>
+			className={`px-4 py-2 xs:py-4 xs:w-[80vw] sm:w-80 text-left text-xl xs:text-2xl leading-10 font-title bg-teal-400 dark:bg-teal-600 rounded-lg sm:hover:translate-x-2 transition-transform flex items-center overflow-hidden ${
+				props.activeIndex == props.index ? "rounded-r-none xs:!translate-x-4" : ""
+			} ${props.activeIndex !== null ? "!w-24" : ""}`}>
 			{props.icon}
-			<span className={`mx-3 transition-all ${props.activeIndex !== null ? "hidden" : ""}`}>
+			<span
+				className={`mr-4 transition-all ${
+					props.activeIndex !== null ? "hidden w-0" : "w-full"
+				}`}>
 				{props.item}
 			</span>
 			<ArrowRightIcon
@@ -49,43 +52,49 @@ function InfoBoxes() {
 
 	const [activeIndex, setActiveIndex] = useState<number>(null);
 
+	const iconStyle = "w-10 h-10 mr-4";
+
 	return (
 		<div className="flex p-2 my-auto sm:m-8 justify-center">
-			<div className="flex flex-col gap-4">
+			<div className="flex flex-col gap-4 content-center">
 				<InfoBox
 					item="SEO"
-					icon={<ArrowTrendingUpIcon className="w-8 h-8" />}
+					icon={<ArrowTrendingUpIcon className={iconStyle} />}
 					index={0}
 					activeIndex={activeIndex}
 					setActiveIndex={setActiveIndex}
 				/>
 				<InfoBox
 					item="Mobil först"
-					icon={<DevicePhoneMobileIcon className="w-8 h-8" />}
+					icon={<DevicePhoneMobileIcon className={iconStyle} />}
 					index={1}
 					activeIndex={activeIndex}
 					setActiveIndex={setActiveIndex}
 				/>
 				<InfoBox
 					item="Tillgänglighet"
-					icon={<UsersIcon className="w-8 h-8" />}
+					icon={<UsersIcon className={iconStyle} />}
 					index={2}
 					activeIndex={activeIndex}
 					setActiveIndex={setActiveIndex}
 				/>
 				<InfoBox
 					item="Prestanda"
-					icon={<CpuChipIcon className="w-8 h-8" />}
+					icon={<CpuChipIcon className={iconStyle} />}
 					index={3}
 					activeIndex={activeIndex}
 					setActiveIndex={setActiveIndex}
 				/>
 			</div>
 			<div
-				className={`bg-teal-400 dark:bg-teal-600 p-4 rounded-lg transition-all overflow-hidden ${
-					activeIndex !== null ? "ml-4" : "w-0 px-0 ml-2"
+				className={`bg-teal-400 dark:bg-teal-600 p-4 rounded-lg xs:transition-all overflow-hidden ${
+					activeIndex !== null ? "xs:ml-3" : "w-0 px-0"
 				} ${
-					activeIndex == 0 ? "rounded-tl-none" : activeIndex == 3 ? "rounded-bl-none" : ""
+					activeIndex == 0
+						? "rounded-tl-none"
+						: activeIndex == 3
+						? "xs:rounded-bl-none"
+						: ""
 				}`}>
 				<p className="text-sm xs:text-base xs:w-64">{texts[activeIndex]}</p>
 			</div>
@@ -104,16 +113,17 @@ export default function WhatWeDo() {
 			<animated.div
 				style={{ ...spring }}
 				className="flex flex-col lg:flex-row-reverse items-center justify-center w-full">
-				<div className="lg:ml-auto lg:flex-grow text-center mt-32 mb-16 flex flex-col items-center mx-4">
-					<h2 className="font-title text-xl sm:text-2xl mb-2">
+				<div className="relative min-h-[40rem] lg:ml-auto lg:flex-grow justify-center text-center mt-32 mb-16 flex flex-col items-center mx-4 group">
+					<h2 className="font-title text-xl sm:text-4xl mb-2">
 						Hemsidor för alla syften
 					</h2>
-					<p className="max-w-md text-left sm:text-lg">
+					<p className="max-w-lg text-left sm:text-xl leading-loose sm:leading-loose">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam
 						corporis provident cumque quis quo, dignissimos quae animi fugiat reiciendis
 						molestiae? Officia at magni a! Corrupti ipsa porro quae officia.
 					</p>
 				</div>
+
 				<Waypoint
 					onEnter={() => {
 						if (!animationFinished)
