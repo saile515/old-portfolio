@@ -34,7 +34,7 @@ function InfoBox(props: {
 				{props.item}
 			</span>
 			<ArrowRightIcon
-				className={`w-6 h-6 ml-auto transition-all ${
+				className={`w-6 xs:w-8 h-6 xs:h-8 ml-auto transition-all ${
 					props.activeIndex == props.index ? "rotate-180" : ""
 				}`}
 			/>
