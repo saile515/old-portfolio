@@ -34,12 +34,12 @@ function Background() {
 			<GlobeAltIcon className={style} />
 			<div></div>
 			<CloudIcon className={style} />
+			<PencilSquareIcon className={style} />
+			<div></div>
 			<LockClosedIcon className={style} />
 			<div></div>
+			<div></div>
 			<CircleStackIcon className={style} />
-			<div></div>
-			<div></div>
-			<PencilSquareIcon className={style} />
 			<div></div>
 			<Cog8ToothIcon className={style} />
 		</div>
